@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://localhost:8082/fileupload" method="post" enctype="multipart/form-data">
+        <input type="file" name="filetoupload" class="custom-inputFile" webkitdirectory directory multiple>
+        <button>Démarrer directement</button>
+    </form>
+    <form action="http://localhost:8082/api/option" method="get">
+        <button>Zipez document</button>
+    </form>
+    <form action="http://localhost:8082/downloadClick" method="get">
+        <button>DownloadClick</button>
+    </form>
+    <form action="http://localhost:8082/downloadRead" method="get">
+        <button>DownloadRead</button>
+    </form>
+
+    <script>
+        
+        
+        var sendData = document.querySelector('#send')
+        sendData.addEventListener('click',function(e){
+            e.preventDefault()
+            var xm =new XMLHttpRequest()
+            var data = {
+                "data":"value"
+            }
+            var url = "http://localhost:8082/params"
+            xm.open('POST',url)
+            xm.setRequestHeader('Content-type','application/json')
+            xm.send(JSON.stringify(data)) 
+
+            })
+
+    </script>
+</body>
+</html>
